@@ -14,7 +14,7 @@ function App() {
   <BrowserRouter>
     <Sidebar>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Dashboard />} />
         <Route path="/diciplinaria" element={<IADiciplinaria />} />
         <Route path="/juridica" element={<IAJuridica />} />
       </Routes>
