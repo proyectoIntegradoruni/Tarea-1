@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import IADiciplinaria from './pages/IADiciplinaria'
 import IAJuridica from './pages/IAJuridica'
 import Dashboard from './pages/Dashboard';
+import Login from './pages/login';
 function App() {
 
 
@@ -13,7 +14,7 @@ function App() {
   <BrowserRouter>
     <Sidebar>
       <Routes>
-        <Route path="/" element={<Dashboard />} />
+        <Route path="/" element={<Login />} />
         <Route path="/diciplinaria" element={<IADiciplinaria />} />
         <Route path="/juridica" element={<IAJuridica />} />
       </Routes>
