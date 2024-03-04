@@ -8,12 +8,12 @@ const Sidebar = ({children}) => {
     const toggle = () => setIsOpen (!isOpen);
   const menuItem = [
     {
-      path: "/juridica",
+      path: "home/juridica",
       name: "Asesor Juridico",
       icon:<FaUserAlt/>
     },
     {
-      path: "/diciplinaria",
+      path: "home/diciplinaria",
       name: "Asesor Diciplinario",
       icon:<FaUserAlt/>
     }

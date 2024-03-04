@@ -6,18 +6,19 @@ import IADiciplinaria from './pages/IADiciplinaria'
 import IAJuridica from './pages/IAJuridica'
 import Dashboard from './pages/Dashboard';
 import Login from './pages/login';
+import AppLayout from './pages/AppLayout';
 
 function App() {
   return (
-    
-      <Sidebar>
-        <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/diciplinaria" element={<IADiciplinaria />} />
-          <Route path="/juridica" element={<IAJuridica />} />
-        </Routes>
-      </Sidebar>
-   
+  
+    <Sidebar>
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/diciplinaria" element={<IADiciplinaria />} />
+        <Route path="/juridica" element={<IAJuridica />} />
+      </Routes>
+    </Sidebar>
+
   );
 }
 
