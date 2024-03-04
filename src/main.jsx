@@ -4,13 +4,15 @@ import App from './App.jsx'
 import './index.css'
 import Login from './pages/login.jsx'
 import AppI from './loginpage.jsx'
-
+import { BrowserRouter } from 'react-router-dom'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-  <div className='text-white h-[100vh] flex items'>
-  <AppI/>
+    <BrowserRouter>
+    
+    <AppI/>
+    </BrowserRouter>
+  
 
-  </div>
    
   </React.StrictMode>,
 )
