@@ -1,8 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-   
+  const navigate = useNavigate();
 
+  const handleLogin = () => {
+    // Lógica de autenticación...
+
+    // Si la autenticación es exitosa, navegar a la ruta '/home'
+    navigate('/home');
+  };
     return (
         <div >
             <div className="bg-slate-800 border border-slate-700 rounded-md p-8 shadow-lg backdrop-filtre backdrop-blur-lg bg-opacity-30 relative">
@@ -18,8 +25,13 @@ const Login = () => {
                         <label htmlFor=""className="absolute text-sm duration-300 transform -translate-y-3 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:focus:border-blue-500 peer-placeholder-shown:scale-100 peer-focus:scale-75 peer-focus:translate-y-6">Password</label>
                         </div>
                         <div>
-                           <button type="submit" className="w-full mb-4 text-[20px] rounded blue-500 py-2 hover:bg-blue-600 translation-colors duration-300" >Ingresar</button>  
-                            </div>                   
+                        <button
+        type="button"
+        onClick={handleLogin}
+        className="w-full mb-4 text-[20px] rounded blue-500 py-2 hover:bg-blue-600 translation-colors duration-300"
+      >
+        Ingresar
+      </button>                            </div>                   
                     </div>
                 </form>
                 </div>

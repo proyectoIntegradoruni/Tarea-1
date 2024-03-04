@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Login from './pages/login';
+import { AppRouter } from './AppRouter';
 //https://edea.juntadeandalucia.es/bancorecursos/file/41832ff2-cfcb-4923-ac63-5abdf63e5087/1/CDI_1BAC_REA_01_v01.zip/gif_animado_narrador_juvenil.gif
 function AppI() {
   const containerStyle = {
@@ -14,8 +15,9 @@ function AppI() {
   };
 
   return (
-    <div style={{ ...containerStyle }}>
-      <Login />
+    <div >
+      <AppRouter/>
+      
     </div>
   );
 }
