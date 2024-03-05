@@ -5,12 +5,12 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import IADiciplinaria from './pages/IADiciplinaria'
 import IAJuridica from './pages/IAJuridica'
 import Dashboard from './pages/Dashboard';
+import Login from './pages/login';
+import AppLayout from './pages/AppLayout';
+
 function App() {
-
-
   return (
-    
-  <BrowserRouter>
+  
     <Sidebar>
       <Routes>
         <Route path="/" element={<Dashboard />} />
@@ -18,9 +18,9 @@ function App() {
         <Route path="/juridica" element={<IAJuridica />} />
       </Routes>
     </Sidebar>
-  </BrowserRouter>
-    
-  )
+
+  );
 }
 
-export default App
+export default App;
+
