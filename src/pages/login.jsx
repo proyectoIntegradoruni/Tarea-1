@@ -1,3 +1,4 @@
+import { purple } from '@mui/material/colors';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -11,7 +12,7 @@ const Login = () => {
     alignItems: 'center',
     height: '100vh',
     width: '100vw',
-    background: 'url("https://preview.redd.it/dibujo-random-v0-9gscbh81n8rb1.png?auto=webp&s=fa5705c429e769d1bc47217f0017aaaf7ad027f1")',
+    background: purple,
     backgroundSize: 'cover',
   };
 

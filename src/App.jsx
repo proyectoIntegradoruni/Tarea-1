@@ -7,7 +7,7 @@ import IAJuridica from './pages/IAJuridica'
 import Dashboard from './pages/Dashboard';
 import Login from './pages/login';
 import AppLayout from './pages/AppLayout';
-
+import './style.scss'
 function App() {
   return (
   
