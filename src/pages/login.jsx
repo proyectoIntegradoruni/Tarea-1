@@ -5,6 +5,15 @@ const Login = () => {
 
   const navigate = useNavigate();
 
+  const containerStyle = {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100vh',
+    width: '100vw',
+    background: 'url("https://preview.redd.it/dibujo-random-v0-9gscbh81n8rb1.png?auto=webp&s=fa5705c429e769d1bc47217f0017aaaf7ad027f1")',
+    backgroundSize: 'cover',
+  };
 
   const handleLogin = () => {
     // Lógica de autenticación...
@@ -13,7 +22,7 @@ const Login = () => {
     navigate('/home');
   };
     return (
-        <div >
+        <div style={containerStyle} >
             <div className="bg-slate-800 border border-slate-700 rounded-md p-8 shadow-lg backdrop-filtre backdrop-blur-lg bg-opacity-30 relative">
                 <h1 className="text-4xl font-bold text-center">Login</h1>
                 <form action="">
