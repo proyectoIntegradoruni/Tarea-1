@@ -2,6 +2,7 @@ const express = require('express');
 const  conectarDB = require('./conexion');
 const Usuario = require("./Modelo/usuario");
 const bodyParser = require('body-parser');
+const cors = require("cors")
 
 const autenticar = async (req, res) => {
   console.log(req.body); // Agrega esta línea para imprimir el cuerpo de la solicitud
@@ -32,6 +33,8 @@ const autenticar = async (req, res) => {
 const app = express();
 conectarDB();
 app.use(bodyParser.json());
+app.use(cors());
+
 const PORT = process.env.PORT || 4000;
 
 
