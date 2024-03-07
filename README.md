@@ -22,6 +22,6 @@ poder del lenguaje natural o la característica que ofrezca el LLM.
 
 Asistente Juridico y Asistenete Diciplinario utilizando la API de gemini
 ## Credenciales Validas
-Username : Admin
-Password : Admin
+-Username : Admin
+-Password : Admin
 ## Desarrollo
