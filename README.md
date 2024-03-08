@@ -1,4 +1,10 @@
 # Tarea-1
+En este taller, los estudiantes tendrán la oportunidad de desarrollar una aplicación utilizando un
+Modelo de Lenguaje Grande (LLM – Large Lenguage Model) como el API ChatGPT o Gemini,
+para resolver un problema de su elección. La aplicación deberá ser capaz de comprender
+preguntas o solicitudes de información y proporcionar respuestas relevantes y útiles utilizando el
+poder del lenguaje natural o la característica que ofrezca el LLM.
+
 
 ## Instrucciones para correr el proyecto
 
@@ -14,6 +20,8 @@
 
 # Proyecto Integrador
 
-(Descripción breve del proyecto integrador)
-
+Asistente Juridico y Asistenete Diciplinario utilizando la API de gemini
+## Credenciales Validas
+- Username : Admin
+- Password : Admin
 ## Desarrollo
