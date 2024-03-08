@@ -4,7 +4,6 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Login from "./pages/login";
 import App from "./App";
 
-
 export const AppRouter = () => {
   return (
     <BrowserRouter>

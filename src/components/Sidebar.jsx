@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import {FaUserAlt, FaBars} from "react-icons/fa"
 import { NavLink } from "react-router-dom";
+import Dashboard from "../pages/Dashboard";
 
 const Sidebar = ({children}) => {
   const[isOpen ,setIsOpen] = useState(false)
@@ -37,7 +38,7 @@ const Sidebar = ({children}) => {
             ))
           }
       </div>
-      <main>{children} </main>
+      <main>{children} <Dashboard/> </main>
     </div>
   );
 }

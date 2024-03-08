@@ -1,5 +1,4 @@
 import React from "react";
-
 const Message = ({ content, timestamp, isOwner }) => {
     const ownerImageUrl = "https://img.freepik.com/vector-premium/icono-circulo-usuario-anonimo-ilustracion-vector-estilo-plano-sombra_520826-1931.jpg";
     const nonOwnerImageUrl = "https://www.portafolio.co/files/article_new_multimedia/uploads/2023/06/23/6495b3b7d8adf.jpeg";
