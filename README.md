@@ -20,7 +20,7 @@ poder del lenguaje natural o la característica que ofrezca el LLM.
 
 # Proyecto Integrador
 
-Asistente Juridico y Asistenete Diciplinario utilizando la API de gemini
+Asistente Juridico y Asistente Diciplinario utilizando la API de gemini
 ## Credenciales Validas
 - Username : Admin
 - Password : Admin
