@@ -1,4 +1,6 @@
 const { GoogleGenerativeAI } = require("@google/generative-ai");
+const Mensaje = require("./Modelo/conversacion")
+const  conectarDB = require('./conexion');
 
 // Access your API key as an environment variable (see "Set up your API key" above)
 const genAI = new GoogleGenerativeAI('AIzaSyA_1ww0D3VHTWNJBW3A0qy94sS9ahRTfps');
@@ -14,12 +16,22 @@ async function run(historial) {
     },
   });
 
-  const msg = "como hace la vaca?";
+  const pregunta = historial[historial.length - 1];
+  const msg = pregunta.contenido
 
   const result = await chat.sendMessage(msg);
   const response = await result.response;
   const text = response.text();
+  const remitente = 'Diciplinario'
+
+  const nuevoMensaje = new Mensaje({
+    remitente,
+    destinatario,
+    contenido
+  });
+
   console.log(text);
+  return text;
 }
 
 

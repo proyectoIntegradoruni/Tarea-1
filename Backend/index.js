@@ -61,7 +61,6 @@ const agregarMensaje = async (req, res) => {
 };
 
 
-
 const obtenerMensajes = async (req, res) => {
 
   const { remitente, destinatario } = req.body;
@@ -78,11 +77,11 @@ const obtenerMensajes = async (req, res) => {
 
     const historials = obtenerRoleParts(mensajes);
     console.log(historials)
-    run(historials)
+    const respuestaIA = run(historials)
 
-   
+    
 
-    res.status(200).json({ mensajes });
+    res.status(200).json({ mensajes, respuestaIA });
     console.log('Mensajes obtenidos exitosamente:', mensajes);
     return mensajes;
   } catch (error) {

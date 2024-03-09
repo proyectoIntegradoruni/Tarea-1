@@ -23,6 +23,9 @@ const IADiciplinaria = () => {
   const messages = [];
 
   const [mensajes, setMensajes] = useState([]);
+  const [texto, setTexto] = useState('');
+  
+
   useEffect(() => {
     // Define la función para realizar la consulta
     const obtenerMensajes = async () => {
@@ -35,13 +38,14 @@ const IADiciplinaria = () => {
           destinatario: destinatario
         };
 
-        const url = 'http://localhost:4000/api/historial';
+        const url = 'http://localhost:4000/api/historial'
 
         // Cambia esta línea a axios.get si es una solicitud GET
         const response = await axios.post(url, {remitente, destinatario });
 
-        const mensajesObtenidos = response.data.mensajes;
-
+        const mensajesObtenidos = response.data.mensajes ;
+        setTexto(response.data.respuestaIA)
+        
         setMensajes(mensajesObtenidos);
         console.log('Mensajes obtenidos:', mensajesObtenidos);
       } catch (error) {
@@ -49,8 +53,50 @@ const IADiciplinaria = () => {
       }
     };
 
+    /*const handleen = async () => {
+    
+      const remitente = 'Diciplinario';
+      const destinatario = 'Admin';
+      const datoss = {
+        remitente: remitente,
+        destinatario: destinatario,
+        contenido : texto
+      };
+      console.log(datoss)
+  
+      
+     
+      try 
+      {
+        const url = 'http://localhost:4000/api/mensaje';
+        const respuesta = await axios.post(url, datoss);
+  
+        
+      } 
+      catch (error) 
+      {
+        console.log(error);
+        // Manejo de errores en caso de que falle la solicitud al backend
+        if (error.response && error.response.status === 400) {
+          // Si el código de estado es 400, significa que la contraseña es incorrecta
+          alert("Contraseña incorrecta");
+        }
+        else if (error.response && error.response.status === 401) {
+          // Si el código de estado es 400, significa que la contraseña es incorrecta
+          alert("Credenciales inválidas");
+        } else {
+          // Manejo de otros errores en caso de que falle la solicitud al backend
+          alert("Ocurrió un error. Por favor, intenta nuevamente más tarde.");
+        }
+      } 
+      // Recargar la página
+        window.location.reload();
+      
+    };*/
+    
     // Llama a la función de consulta cuando se monta el componente
     obtenerMensajes();
+    //handleen();
   }, []); // El
 
    console.log(mensajes)
@@ -85,3 +131,4 @@ const IADiciplinaria = () => {
 }
 
 export default IADiciplinaria;
+export texto;
