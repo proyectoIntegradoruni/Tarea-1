@@ -13,11 +13,7 @@ async function run(historial) {
  const model = genAI.getGenerativeModel({ model: "gemini-pro"});
 
   const chat = model.startChat({
-    history: [
-    { role: 'user', parts: 'hola' },
-    { role: 'model', parts: '¡Hola! ¿En qué puedo ayudarte hoy?' },
-    { role: 'user', parts: 'sabes de leyes?' } 
-    ].slice(0, -1),
+    history: historial.slice(0, -1),
     generationConfig: {
       maxOutputTokens: 100,
     },
