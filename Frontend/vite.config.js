@@ -6,8 +6,8 @@ import autoprefixer from 'autoprefixer';
 export default defineConfig({
   plugins: [
     react(),
-    tailwindcss(),
-    autoprefixer(),
+   tailwindcss(),
+   autoprefixer(),
      
   ],
 });

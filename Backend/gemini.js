@@ -13,7 +13,11 @@ async function run(historial) {
  const model = genAI.getGenerativeModel({ model: "gemini-pro"});
 
   const chat = model.startChat({
-    history: historial.slice(0, -1),
+    history: [
+    { role: 'user', parts: 'hola' },
+    { role: 'model', parts: '¡Hola! ¿En qué puedo ayudarte hoy?' },
+    { role: 'user', parts: 'sabes de leyes?' } 
+    ].slice(0, -1),
     generationConfig: {
       maxOutputTokens: 100,
     },
@@ -25,9 +29,10 @@ async function run(historial) {
 
   const result = await chat.sendMessage(msg);
   const response = await result.response;
+
   const text = response.text();
 
-  console.log(text)
+  console.log("el texto dice: "+ text)
   const  remitente ='Diciplinario'
   const destinatario ='Admin'
   const contenido = text
