@@ -9,7 +9,7 @@ const { run } = require("./gemini")
 const cors = require("cors")
 
 const autenticar = async (req, res) => {
-  console.log(req.body); 
+  //console.log(req.body); 
   const { usuario, password } = req.body;
 
     try {
@@ -36,7 +36,7 @@ const autenticar = async (req, res) => {
 
 //ingresar mensaje 
 const agregarMensaje = async (req, res) => {
- console.log(100)
+// console.log(100)
   const {  remitente, destinatario, contenido} = req.body;
   const nuevoMensaje = new Mensaje({
     remitente,
@@ -45,14 +45,28 @@ const agregarMensaje = async (req, res) => {
   });
 
   try {
+    const { remitente, destinatario } = req.body;
+    //console.log(req.body)
+   
+    
       
 
       await nuevoMensaje.validate(); // Valida el mensaje antes de guardarlo
 
       await nuevoMensaje.save();
+      const mensajes = await Mensaje.find({
+        $or: [
+          { remitente, destinatario },
+          { remitente: destinatario, destinatario: remitente },
+        ],
+      })
+  
+     
       res.status(200).json({ respuesta: nuevoMensaje });
-
-      console.log('Mensaje agregado exitosamente:', nuevoMensaje);
+      const historials = obtenerRoleParts(mensajes);
+     
+      run(historials)
+      //console.log('Mensaje agregado exitosamente:', nuevoMensaje);
       return nuevoMensaje;
   } catch (error) {
       console.error('Error al agregar el mensaje:', error);
@@ -65,10 +79,10 @@ const agregarMensaje = async (req, res) => {
 const obtenerMensajes = async (req, res) => {
 
   const { remitente, destinatario } = req.body;
-  console.log(remitente)
+ // console.log(remitente)
   try {
     const { remitente, destinatario } = req.body;
-    console.log(req.body)
+    //console.log(req.body)
     const mensajes = await Mensaje.find({
       $or: [
         { remitente, destinatario },
@@ -76,14 +90,14 @@ const obtenerMensajes = async (req, res) => {
       ],
     })
 
-    const historials = obtenerRoleParts(mensajes);
-    console.log(historials)
-    run(historials)
+    //const historials = obtenerRoleParts(mensajes);
+    //console.log(historials)
+    //run(historials)
 
    
 
     res.status(200).json({ mensajes });
-    console.log('Mensajes obtenidos exitosamente:', mensajes);
+    //console.log('Mensajes obtenidos exitosamente:', mensajes);
     return mensajes;
   } catch (error) {
     console.error('Error al obtener los mensajes:', error);
