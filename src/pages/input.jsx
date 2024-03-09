@@ -20,6 +20,7 @@ const Input = () => {
     
     const remitente = 'Admin';
     const destinatario = 'Diciplinario';
+    const mensaje = texto;
     const datos = {
       remitente: remitente,
       destinatario: destinatario,
@@ -54,42 +55,6 @@ const Input = () => {
     } /**/ 
     // Recargar la página
       window.location.reload();
-
-
-      const datoss = {
-        remitente: 'Diciplinario',
-        destinatario: 'Admin',
-        contenido : texto
-      };
-      console.log(datos)
-  
-      
-     
-      try 
-      {
-        const url = 'http://localhost:4000/api/mensaje';
-        const respuesta = await axios.post(url, datos);
-  
-        
-      } 
-      catch (error) 
-      {
-        console.log(error);
-        // Manejo de errores en caso de que falle la solicitud al backend
-        if (error.response && error.response.status === 400) {
-          // Si el código de estado es 400, significa que la contraseña es incorrecta
-          alert("Contraseña incorrecta");
-        }
-        else if (error.response && error.response.status === 401) {
-          // Si el código de estado es 400, significa que la contraseña es incorrecta
-          alert("Credenciales inválidas");
-        } else {
-          // Manejo de otros errores en caso de que falle la solicitud al backend
-          alert("Ocurrió un error. Por favor, intenta nuevamente más tarde.");
-        }
-      } /**/ 
-      // Recargar la página
-        window.location.reload();
     
   };
 
