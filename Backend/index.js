@@ -126,7 +126,9 @@ const PORT = process.env.PORT || 4000;
 app.post('/api/login', autenticar);
 app.post('/api/mensaje', agregarMensaje);
 app.post('/api/historial',obtenerMensajes);
-
+app.get('/', (req, res) => {
+  res.send('¡Hola desde el servidor backend!');
+});
 
 app.listen(PORT, () => {
   console.log(`Servidor Express escuchando en el puerto ${PORT}`);

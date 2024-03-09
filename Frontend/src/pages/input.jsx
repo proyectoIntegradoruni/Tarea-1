@@ -32,7 +32,7 @@ const Input = () => {
    
     try 
     {
-      const url = 'http://localhost:4000/api/mensaje';
+      const url = 'https://desplegue-back2-production.up.railway.app/api/mensaje';
       const respuesta = await axios.post(url, datos);
 
       
