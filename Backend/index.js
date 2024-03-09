@@ -3,6 +3,9 @@ const  conectarDB = require('./conexion');
 const Usuario = require("./Modelo/usuario");
 const bodyParser = require('body-parser');
 const Mensaje = require("./Modelo/conversacion")
+
+const { run } = require("./gemini")
+
 const cors = require("cors")
 
 const autenticar = async (req, res) => {
@@ -58,6 +61,7 @@ const agregarMensaje = async (req, res) => {
 };
 
 
+
 const obtenerMensajes = async (req, res) => {
 
   const { remitente, destinatario } = req.body;
@@ -72,6 +76,10 @@ const obtenerMensajes = async (req, res) => {
       ],
     })
 
+    const historials = obtenerRoleParts(mensajes);
+    console.log(historials)
+    run(historials)
+
    
 
     res.status(200).json({ mensajes });
@@ -83,6 +91,14 @@ const obtenerMensajes = async (req, res) => {
     throw error;
   }
 };
+
+// utils.js
+function obtenerRoleParts(datos) {
+  return datos.map(({ remitente, contenido }) => ({
+    role: remitente === 'Admin' ? 'user' : remitente === 'Diciplinario' ? 'model' : remitente,
+    parts: contenido,
+  }));
+}
 
 
 const app = express();
