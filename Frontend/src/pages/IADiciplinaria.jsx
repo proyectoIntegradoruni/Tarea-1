@@ -26,7 +26,7 @@ const IADiciplinaria = () => {
       try {
         const remitente = 'Admin';
         const destinatario = 'Diciplinario';
-        const url = 'https://desplegue-back2-production.up.railway.app/api/historial';
+        const url = 'https://back-final-production.up.railway.app/api/historial';
 
         // Cambia esta línea a axios.get si es una solicitud GET
         const response = await axios.post(url, { remitente, destinatario });

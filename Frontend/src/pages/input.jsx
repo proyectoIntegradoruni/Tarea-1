@@ -32,7 +32,7 @@ const Input = ({asesor}) => {
    
     try 
     {
-      const url = 'https://desplegue-back2-production.up.railway.app/api/mensaje';
+      const url = 'https://back-final-production.up.railway.app/api/mensaje';
       const respuesta = await axios.post(url, datos);
 
       

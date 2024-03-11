@@ -44,7 +44,7 @@ const Login = () => {
     
     try 
     {
-      const url = "https://desplegue-back2-production.up.railway.app/api/login";
+      const url = "https://back-final-production.up.railway.app/api/login";
       const respuesta = await axios.post(url, { usuario, password });
       const isAuthorized = (respuesta.data && respuesta.data.respuesta === "ok");
 
