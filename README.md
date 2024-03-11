@@ -26,4 +26,4 @@ Asistente Juridico y Asistente Diciplinario utilizando la API de gemini
 - Password : Admin
 ## Desplegue
 
-- https://front-des-production.up.railway.app/
+- [https://front-des-production.up.railway.app/](https://front-final-production.up.railway.app/)
