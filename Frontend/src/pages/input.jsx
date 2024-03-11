@@ -65,6 +65,7 @@ const Input = ({asesor}) => {
         placeholder="Escribe algo..."
         value={texto}
         onChange={handleChange}
+        style={{ color: 'black' }}
       />
       <div className="send">
         <img src={Attach} alt="" />

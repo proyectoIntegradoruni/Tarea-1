@@ -58,7 +58,7 @@ const IADiciplinaria = () => {
       <div className="container">  
         <div className="chat">
           <div className="chatInfo">
-            <span>{'Asesor Diciplinario'}</span>
+            <span style={{fontSize: '19px' , fontFamily: 'Comic Sans MS', fontWeight: 'bold', display: 'inline-block', margin: '10',}} >{'Asesor Diciplinario'}</span>
             <div className="chatIcons">
               <img src={Cam} alt="" />
               <img src={Add} alt="" />
