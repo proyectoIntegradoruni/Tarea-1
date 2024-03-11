@@ -23,7 +23,7 @@ const Dashboard = () => {
             </h1>
             </div>
             <div style={{ display: 'flex', justifyContent: 'flex-end', width: '100%', height: '100%' }}>
-                <img src="../../public/imagenInicio.gif" alt="Descripción de la imagen" style={{ width: '100%', height: '100%', objectFit: 'cotain'}} />
+                <img src="../../src/img/imagenInicio.gif" alt="Descripción de la imagen" style={{ width: '100%', height: '100%', objectFit: 'cotain'}} />
             </div>
             
         </div>

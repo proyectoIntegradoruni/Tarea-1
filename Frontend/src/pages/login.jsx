@@ -25,7 +25,7 @@ const Login = () => {
     alignItems: 'center',
     height: '100vh',
     width: '100vw',
-    backgroundImage: 'url(/imagenInicio.gif)',
+    backgroundImage: 'url(/imagenInicio2.gif)',
     backgroundSize: 'contain',
     
   };
