@@ -66,7 +66,7 @@ const IADiciplinaria = () => {
             </div>
           </div>
           <Messages messages={messages} />
-          <Input />
+          <Input asesor={"Diciplinario"}/>
         </div>
       </div>
     </div>

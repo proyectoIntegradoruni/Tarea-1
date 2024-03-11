@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Img from "../img/img.png"
 import Attach from "../img/attach.png"
 import axios from 'axios';
-const Input = () => {
+const Input = ({asesor}) => {
   const [texto, setTexto] = useState('');
 
   const handleChange = (event) => {
@@ -19,7 +19,7 @@ const Input = () => {
   const handleenviar = async (e) => {
     
     const remitente = 'Admin';
-    const destinatario = 'Diciplinario';
+    const destinatario = asesor;
     const mensaje = texto;
     const datos = {
       remitente: remitente,

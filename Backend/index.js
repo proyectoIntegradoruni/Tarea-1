@@ -6,7 +6,8 @@ const Mensaje = require("./Modelo/conversacion")
 
 const { run } = require("./gemini")
 
-const cors = require("cors")
+const cors = require("cors");
+const run2 = require('./gem2');
 
 const autenticar = async (req, res) => {
   //console.log(req.body); 
@@ -45,7 +46,7 @@ const agregarMensaje = async (req, res) => {
   });
 
   try {
-    const { remitente, destinatario } = req.body;
+    
     //console.log(req.body)
    
     
@@ -54,18 +55,15 @@ const agregarMensaje = async (req, res) => {
       await nuevoMensaje.validate(); // Valida el mensaje antes de guardarlo
 
       await nuevoMensaje.save();
-      const mensajes = await Mensaje.find({
-        $or: [
-          { remitente, destinatario },
-          { remitente: destinatario, destinatario: remitente },
-        ],
-      })
   
      
       res.status(200).json({ respuesta: nuevoMensaje });
-      const historials = obtenerRoleParts(mensajes);
+      //const historials = obtenerRoleParts(mensajes);
      
-      run(historials)
+      const respuestaIA =  await run2(contenido, destinatario)
+      
+      guardarIA(""+respuestaIA, destinatario)
+
       //console.log('Mensaje agregado exitosamente:', nuevoMensaje);
       return nuevoMensaje;
   } catch (error) {
@@ -73,6 +71,7 @@ const agregarMensaje = async (req, res) => {
       throw error;
   }
 };
+
 
 
 const obtenerMensajes = async (req, res) => {
@@ -114,6 +113,27 @@ function obtenerRoleParts(datos) {
   }));
 }
 
+async function guardarIA(contenido,asesor)
+{
+  const remitente = asesor
+  const destinatario = "Admin"
+  const nuevoMensaje = new Mensaje({
+    remitente,
+    destinatario,
+    contenido
+  });
+
+  try {
+    // Valida y guarda el documento
+    await nuevoMensaje.save();
+    console.log('Mensaje agregado exitosamente geminis:', nuevoMensaje);
+    return nuevoMensaje;
+  } catch (error) {
+    console.error('Error al agregar el mensaje:', error);
+    throw error;
+  }
+
+}
 
 const app = express();
 conectarDB();

@@ -3,32 +3,41 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 // Access your API key as an environment variable (see "Set up your API key" above)
 const genAI = new GoogleGenerativeAI('AIzaSyA_1ww0D3VHTWNJBW3A0qy94sS9ahRTfps');
 
-async function filtro(pregun) {
+async function filtro(pregun, asesor) {
   // For text-only input, use the gemini-pro model
   const model = genAI.getGenerativeModel({ model: "gemini-pro"});
 
-  const prompt = "dime si esta pregunta cumple para una asesoria informativa juridica basandonos en las leyes de colombia(responde solo si o no): "+pregun
-
-
-  const result = await model.generateContent(prompt);
-  const response = await result.response;
-  const text = response.text();
- 
-  if(text == "Sí")
+  console.log("estamos en filtrosa"+asesor)
+  if(asesor === "Diciplinario")
   {
-    return true
-    
+    const prompt = "dime si esta pregunta cumple para una asesoria informativa diciplinaria y no juridica(responde solo si o no): "+pregun
+
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    const text = response.text();
+    console.log(text)
+    console.log(typeof text);
+    return text
   }
-  else if (text == "No")
+  else if(asesor === "Juridico")
   {
-    return false
+    const prompt = "dime si esta pregunta cumple para una asesoria informativa juridica basandonos en las leyes de colombia(responde solo si o no): "+pregun
+
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    const text = response.text();
+    console.log(text)
+    console.log(typeof text);
+    return text
+  }
+  else
+  {
+    const text = "falla de filtros"
+    return text
   }
   
-  
-
 
 }
 
-filtro(" ¿Qué puedo hacer si la empresa de energía no me da una respuesta satisfactoria a mi reclamación?")
 
 module.exports = filtro;
