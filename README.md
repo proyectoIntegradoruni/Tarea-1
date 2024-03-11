@@ -24,4 +24,6 @@ Asistente Juridico y Asistente Diciplinario utilizando la API de gemini
 ## Credenciales Validas
 - Username : Admin
 - Password : Admin
-## Desarrollo
+## Desplegue
+
+- https://front-des-production.up.railway.app/

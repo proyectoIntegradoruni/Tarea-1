@@ -43,7 +43,7 @@ const Login = () => {
     
     try 
     {
-      const url = "http://localhost:4000/api/login";
+      const url = "https://desplegue-back2-production.up.railway.app/api/login";
       const respuesta = await axios.post(url, { usuario, password });
       const isAuthorized = (respuesta.data && respuesta.data.respuesta === "ok");
 
