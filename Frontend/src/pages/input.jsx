@@ -54,7 +54,8 @@ const Input = ({asesor}) => {
       }
     } /**/ 
     // Recargar la página
-      window.location.reload();
+     // window.location.reload();
+     setTexto("")
     
   };
 

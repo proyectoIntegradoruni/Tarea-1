@@ -6,8 +6,10 @@ import Messages from "./Messages";
 import Cam from "../img/attach.png";
 import Add from "../img/add.png";
 import More from "../img/more.png";
+import { TypingIndicator } from '@chatscope/chat-ui-kit-react';
 
 const IADiciplinaria = () => {
+  const [escri, setEscri] = useState(false)
   const containerStyle = {
     display: 'flex',
     justifyContent: 'center',
@@ -19,7 +21,7 @@ const IADiciplinaria = () => {
   };
 
   const [mensajes, setMensajes] = useState([]);
-  const [actualizado, setActualizado] = useState(false);
+
 
   useEffect(() => {
     const obtenerMensajes = async () => {
@@ -28,29 +30,33 @@ const IADiciplinaria = () => {
         const destinatario = 'Diciplinario';
         const url = 'https://back-final-production.up.railway.app/api/historial';
 
-        // Cambia esta línea a axios.get si es una solicitud GET
         const response = await axios.post(url, { remitente, destinatario });
         const mensajesObtenidos = response.data.mensajes;
-
+        
         setMensajes(mensajesObtenidos);
+        const ultimoMensaje = mensajesObtenidos[mensajesObtenidos.length - 1];
+        setEscri(ultimoMensaje.remitente === 'Admin');
+       
         console.log('Mensajes obtenidos:', mensajesObtenidos);
       } catch (error) {
         console.error('Error al obtener los mensajes:', error);
       }
     };
 
-    if (!actualizado) {
-
-      // Llama a la función de consulta cuando se monta el componente
+    
+    
+    const intervalId = setInterval(() => {
       obtenerMensajes();
-      setActualizado(true);
-    }
-  }, [actualizado]);
+    }, 2000);
+
+    // Limpiar el intervalo al desmontar el componente
+    return () => clearInterval(intervalId);
+  }, []);
 
   const messages = mensajes.map(item => ({
     content: item.contenido,
     timestamp: item.timestamp,
-    isOwner: item.remitente === 'Admin', // Ajusta esto según tus criterios
+    isOwner: item.remitente === 'Admin',
   }));
 
   return (
@@ -65,7 +71,9 @@ const IADiciplinaria = () => {
               <img src={More} alt="" />
             </div>
           </div>
+          
           <Messages messages={messages} />
+          {escri && <TypingIndicator content="asesor escribiendo..." />}
           <Input asesor={"Diciplinario"}/>
         </div>
       </div>

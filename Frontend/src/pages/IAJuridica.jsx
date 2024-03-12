@@ -6,6 +6,8 @@ import Messages from "./Messages";
 import Cam from "../img/attach.png";
 import Add from "../img/add.png";
 import More from "../img/more.png";
+import { TypingIndicator } from '@chatscope/chat-ui-kit-react';
+
 //Juridico
 
 const IAJuridica = () => {
@@ -20,6 +22,7 @@ const IAJuridica = () => {
   };
 
 
+  const [escri, setEscri] = useState(false)
   const [mensajes, setMensajes] = useState([]);
   const [actualizado, setActualizado] = useState(false);
 
@@ -35,19 +38,21 @@ const IAJuridica = () => {
         const mensajesObtenidos = response.data.mensajes;
 
         setMensajes(mensajesObtenidos);
+        const ultimoMensaje = mensajesObtenidos[mensajesObtenidos.length - 1];
+        setEscri(ultimoMensaje.remitente === 'Admin');
         console.log('Mensajes obtenidos:', mensajesObtenidos);
       } catch (error) {
         console.error('Error al obtener los mensajes:', error);
       }
     };
 
-    if (!actualizado) {
-
-      // Llama a la función de consulta cuando se monta el componente
+    const intervalId = setInterval(() => {
       obtenerMensajes();
-      setActualizado(true);
-    }
-  }, [actualizado]);
+    }, 2000);
+
+    // Limpiar el intervalo al desmontar el componente
+    return () => clearInterval(intervalId);
+  }, []);
 
   const messages = mensajes.map(item => ({
     content: item.contenido,
@@ -68,6 +73,7 @@ const IAJuridica = () => {
             </div>
           </div>
           <Messages messages={messages} />
+          {escri && <TypingIndicator content="asesor escribiendo..." />}
           <Input asesor={"Juridico"}/>
         </div>
       </div>
