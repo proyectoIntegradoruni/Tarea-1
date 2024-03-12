@@ -38,7 +38,7 @@ const Sidebar = ({children}) => {
             ))
           }
       </div>
-      <main>{children} <Dashboard/> </main>
+      <main>{children} </main>
     </div>
   );
 }

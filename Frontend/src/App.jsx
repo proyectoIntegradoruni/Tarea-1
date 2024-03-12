@@ -13,7 +13,7 @@ function App() {
   
     <Sidebar>
       <Routes>
-        <Route path="/" element={<Dashboard />} />
+        <Route path="/home" element={<Dashboard />} />
         <Route path="/diciplinaria" element={<IADiciplinaria />} />
         <Route path="/juridica" element={<IAJuridica />} />
       </Routes>
