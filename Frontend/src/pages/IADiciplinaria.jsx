@@ -26,7 +26,7 @@ const IADiciplinaria = () => {
       try {
         const remitente = 'Admin';
         const destinatario = 'Diciplinario';
-        const url = 'https://desplegue-back2-production.up.railway.app/api/historial';
+        const url = 'https://back-final-production.up.railway.app/api/historial';
 
         // Cambia esta línea a axios.get si es una solicitud GET
         const response = await axios.post(url, { remitente, destinatario });
@@ -58,7 +58,7 @@ const IADiciplinaria = () => {
       <div className="container">  
         <div className="chat">
           <div className="chatInfo">
-            <span>{'Asesor Diciplinario'}</span>
+            <span style={{fontSize: '19px' , fontFamily: 'Comic Sans MS', fontWeight: 'bold', display: 'inline-block', margin: '10',}} >{'Asesor Diciplinario'}</span>
             <div className="chatIcons">
               <img src={Cam} alt="" />
               <img src={Add} alt="" />

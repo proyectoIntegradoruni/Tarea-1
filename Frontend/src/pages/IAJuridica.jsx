@@ -6,7 +6,7 @@ import Messages from "./Messages";
 import Cam from "../img/attach.png";
 import Add from "../img/add.png";
 import More from "../img/more.png";
-
+//Juridico
 
 const IAJuridica = () => {
   const containerStyle = {
@@ -19,6 +19,7 @@ const IAJuridica = () => {
     backgroundSize: 'cover',
   };
 
+
   const [mensajes, setMensajes] = useState([]);
   const [actualizado, setActualizado] = useState(false);
 
@@ -27,7 +28,7 @@ const IAJuridica = () => {
       try {
         const remitente = 'Admin';
         const destinatario = 'Juridico';
-        const url = 'http://localhost:4000/api/historial';
+        const url = 'https://back-final-production.up.railway.app/api/historial';
 
         // Cambia esta línea a axios.get si es una solicitud GET
         const response = await axios.post(url, { remitente, destinatario });
@@ -53,25 +54,25 @@ const IAJuridica = () => {
     timestamp: item.timestamp,
     isOwner: item.remitente === 'Admin', // Ajusta esto según tus criterios
   }));
-  return (
 
+  return (
     <div className='home'>
-    <div className="container">  
-      <div className="chat">
-    <div className="chatInfo">
-      <span>{'Asesor Juridico'}</span>
-      <div className="chatIcons">
-          <img src={Cam} alt="" />
-          <img src={Add} alt="" />
-          <img src={More} alt="" />
-        </div>{/**/}
+      <div className="container">  
+        <div className="chat">
+          <div className="chatInfo">
+            <span style={{fontSize: '19px' , fontFamily: 'Comic Sans MS', fontWeight: 'bold', display: 'inline-block', margin: '10',}} >{'Asesor Juridico'}</span>
+            <div className="chatIcons">
+              <img src={Cam} alt="" />
+              <img src={Add} alt="" />
+              <img src={More} alt="" />
+            </div>
+          </div>
+          <Messages messages={messages} />
+          <Input asesor={"Juridico"}/>
+        </div>
+      </div>
     </div>
-    <Messages messages={messages} />
-    <Input asesor={"Juridico"}/>
-  </div>
-  </div>
-  </div>
-);
+  );
 }
 
 export default IAJuridica;
